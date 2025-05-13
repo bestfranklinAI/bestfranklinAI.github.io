@@ -28,12 +28,20 @@ export default function About() {
             When I'm not coding, you can find me hiking, reading tech blogs, or experimenting with new technologies.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Button className="flex items-center gap-2">
+            <Button
+              className="flex items-center gap-2"
+              onClick={() => {
+              const link = document.createElement("a");
+              link.href = "/resume/cv.pdf";
+              link.download = "Franklin_Cheung_Resume.pdf";
+              link.click();
+              }}
+            >
               <Download className="h-4 w-4" /> Download Resume
             </Button>
 
             <motion.a
-              href="https://github.com/yourusername"
+              href="https://github.com/bestfranklinAI"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center h-10 px-4 py-2 rounded-md text-sm font-medium transition-colors bg-muted hover:bg-primary hover:text-primary-foreground"
@@ -44,7 +52,7 @@ export default function About() {
             </motion.a>
 
             <motion.a
-              href="https://linkedin.com/in/yourusername"
+              href="https://linkedin.com/in/franklin-cheung"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center h-10 px-4 py-2 rounded-md text-sm font-medium transition-colors bg-muted hover:bg-primary hover:text-primary-foreground"
@@ -67,7 +75,7 @@ export default function About() {
             whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(0, 0, 0, 0.2)" }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <img src="/placeholder.svg?height=400&width=400" alt="Profile" className="object-cover w-full h-full" />
+            <img src="/images/selfie-profile.jpg" alt="Profile" className="object-cover w-full h-full" />
           </motion.div>
         </motion.div>
       </div>

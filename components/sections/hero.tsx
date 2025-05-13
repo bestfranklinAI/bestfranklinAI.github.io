@@ -25,7 +25,7 @@ export default function Hero() {
       <div
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: "url('/placeholder.svg?height=1080&width=1920')",
+          backgroundImage: "url('/images/home-page-profile.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
