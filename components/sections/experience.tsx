@@ -8,42 +8,26 @@ import { motion } from "framer-motion"
 export default function Experience() {
   const experienceData = [
     {
-      position: "Senior Frontend Developer",
-      company: "Tech Innovations Inc.",
-      period: "2021 - Present",
+      position: "Data Analyst",
+      company: "HAECO",
+      period: "Jun 2024 - Aug 2024",
       description:
-        "Lead the frontend development team in building responsive web applications using React and Next.js.",
+        "",
       responsibilities: [
-        "Architected and implemented the company's design system",
-        "Improved application performance by 40% through code optimization",
-        "Mentored junior developers and conducted code reviews",
-        "Collaborated with UX/UI designers to implement new features",
+        "Developed an Enterprise Asset Management System (EAM) for asset tracking.",
+        "Analyzed data from the EAM and automated report generation to derive actionable insights."
       ],
     },
     {
-      position: "Full Stack Developer",
-      company: "Digital Solutions LLC",
-      period: "2018 - 2021",
+      position: "Software Developer Intern",
+      company: "EHF Limited",
+      period: "Dec 2023 -  Jan 2024",
       description: "Developed and maintained multiple web applications using the MERN stack.",
       responsibilities: [
-        "Built RESTful APIs and microservices using Node.js and Express",
-        "Implemented authentication and authorization systems",
-        "Optimized database queries and improved application performance",
-        "Participated in agile development processes and sprint planning",
+        "Utilize React.js to develop multiple user-friendly websites, ensuring seamless user experiences",
+        "Integrate backend APIs built with Node.js and utilize MongoDB as the primary database solution for storing and retrieving data"
       ],
-    },
-    {
-      position: "Junior Web Developer",
-      company: "WebCraft Studios",
-      period: "2016 - 2018",
-      description: "Assisted in the development of client websites using HTML, CSS, and JavaScript.",
-      responsibilities: [
-        "Developed responsive websites for various clients",
-        "Fixed bugs and implemented new features in existing applications",
-        "Collaborated with designers to implement pixel-perfect designs",
-        "Participated in client meetings and requirement gathering",
-      ],
-    },
+    }
   ]
 
   return (
