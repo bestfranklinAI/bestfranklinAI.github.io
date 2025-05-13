@@ -70,7 +70,7 @@ export default function About() {
           </div>
         </motion.div>
         <motion.div
-          className="flex justify-center"
+          className="flex flex-col items-center"
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
@@ -83,6 +83,7 @@ export default function About() {
           >
             <img src="/images/selfie-profile.jpg" alt="Profile" className="object-cover w-full h-full" />
           </motion.div>
+          <span className="mt-4 text-lg font-semibold text-primary text-center">AIA Scholar | Fung Scholar</span>
         </motion.div>
       </div>
     </section>
