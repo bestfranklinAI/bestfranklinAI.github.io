@@ -40,8 +40,12 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="text-xl font-bold">
-            DevPortfolio
+          <Link href="/" className="flex items-center space-x-2">
+        <img
+          src="/images/my-logo.png"
+          alt="Logo"
+          className="h-10 w-auto object-contain"
+        />
           </Link>
 
           {/* Desktop Navigation */}

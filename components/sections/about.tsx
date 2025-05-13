@@ -16,13 +16,19 @@ export default function About() {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
+            <p className="text-lg mb-4">
+            Hi, I’m Franklin Cheung, a passionate developer and AI enthusiast currently pursuing BEng in Computer Science (+AI) and BBA in Finance at{" "}
+            <a 
+              href="https://techmgmt.hkust.edu.hk/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-primary underline hover:text-primary-dark"
+            >
+              The Hong Kong University of Science and Technology (DDP T&M)
+            </a>.
+            </p>
           <p className="text-lg mb-4">
-            hiiI'm a passionate full-stack developer with over 5 years of experience building web applications. I
-            specialize in JavaScript, React, Node.js, and modern web technologies.
-          </p>
-          <p className="text-lg mb-4">
-            My journey in software development began during my university years, and I've been hooked ever since. I love
-            solving complex problems and creating intuitive, efficient solutions.
+          I love turning complex challenges into smart, user-friendly solutions — whether it's building full-stack web apps, creating AI-powered chatbots, or developing data-driven tools. Skilled in Python, JavaScript, React, and more, I’m always eager to explore the latest tech and collaborate on projects that make a real impact. Dive into my portfolio to see how I blend creativity, technology, and business to bring ideas to life! Let’s build something amazing together!
           </p>
           <p className="text-lg mb-6">
             When I'm not coding, you can find me hiking, reading tech blogs, or experimenting with new technologies.

@@ -7,10 +7,10 @@ import { useCallback } from "react"
 import { motion } from "framer-motion"
 
 export default function Hero() {
-  const { displayText } = useTypingEffect(["I'm a Developer", "I'm a Designer", "I'm a Problem Solver"], {
-    typingSpeed: 100,
-    deletingSpeed: 50,
-    delayBetweenTexts: 2000,
+  const { displayText } = useTypingEffect(["Hi, I'm Franklin Cheung!", "I'm a Developer", "I'm a Finance Enthusiast"], {
+    typingSpeed: 130,
+    deletingSpeed: 70,
+    delayBetweenTexts: 1500,
   })
 
   const scrollToAbout = useCallback(() => {
@@ -23,15 +23,17 @@ export default function Hero() {
   return (
     <div className="relative h-screen flex items-center justify-center">
       <div
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 top-16 z-0"
         style={{
           backgroundImage: "url('/images/home-page-profile.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       />
+      {/* Overlay for better text contrast in light/dark mode */}
+      <div className="absolute inset-0 top-16 z-10 bg-black/40 dark:bg-black/60 pointer-events-none" />
       <motion.div
-        className="relative z-10 text-center"
+        className="relative z-20 text-center"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -44,10 +46,9 @@ export default function Hero() {
           className="text-xl md:text-2xl max-w-2xl mx-auto mb-8 text-white drop-shadow-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 0.8 }}
+          transition={{ delay: 1, duration: 0.8 }}
         >
-          Hello! I'm John Doe, a passionate full-stack developer specializing in building exceptional digital
-          experiences.
+          Hi! I'm Franklin, a penultimate year student at HKUST, and a passionate developer in machine learning and artificial intelligence.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

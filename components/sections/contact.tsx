@@ -76,7 +76,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
-                  <p className="font-medium">john.doe@example.com</p>
+                  <p className="font-medium">franklin123ann@gmail.com</p>
                 </div>
               </motion.div>
               <motion.div
@@ -89,7 +89,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Phone</p>
-                  <p className="font-medium">+1 (555) 123-4567</p>
+                  <p className="font-medium">+852 98730402</p>
                 </div>
               </motion.div>
               <motion.div
@@ -102,7 +102,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Location</p>
-                  <p className="font-medium">San Francisco, CA</p>
+                  <p className="font-medium">Hong Kong</p>
                 </div>
               </motion.div>
             </div>
@@ -112,7 +112,7 @@ export default function Contact() {
             <h3 className="text-xl font-semibold mb-4">Follow Me</h3>
             <div className="flex gap-4">
               <motion.a
-                href="#"
+                href="https://github.com/bestfranklinAI"
                 className="bg-muted p-3 rounded-full hover:bg-primary/20 transition-colors"
                 aria-label="GitHub"
                 whileHover={{ scale: 1.2, rotate: 5 }}
@@ -122,7 +122,7 @@ export default function Contact() {
                 <Github className="h-5 w-5" />
               </motion.a>
               <motion.a
-                href="#"
+                href="https://linkedin.com/in/franklin-cheung"
                 className="bg-muted p-3 rounded-full hover:bg-primary/20 transition-colors"
                 aria-label="LinkedIn"
                 whileHover={{ scale: 1.2, rotate: 5 }}
@@ -130,16 +130,6 @@ export default function Contact() {
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
                 <Linkedin className="h-5 w-5" />
-              </motion.a>
-              <motion.a
-                href="#"
-                className="bg-muted p-3 rounded-full hover:bg-primary/20 transition-colors"
-                aria-label="Twitter"
-                whileHover={{ scale: 1.2, rotate: 5 }}
-                whileTap={{ scale: 0.9 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
-                <Twitter className="h-5 w-5" />
               </motion.a>
             </div>
           </div>
