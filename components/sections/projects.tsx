@@ -22,16 +22,16 @@ export default function Projects() {
 
   const projectsData = [
     {
-      title: "E-commerce Platform",
+      title: "Utilizing LLM for Push Notification",
       description:
-        "A full-featured e-commerce platform with payment integration, user authentication, and admin dashboard.",
-      image: "/placeholder.svg?height=300&width=500",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+        "A full-featured platform with that optimize the generation of push notification with LLM.",
+      image: "/images/temg4950n.png",
+      technologies: ["React", "Node.js", "CrewAI", "Prompt Engineering", "RAG", "Llama"],
       category: "fullstack",
       liveLink: "#",
-      githubLink: "#",
+      githubLink: "https://github.com/TEMG4950N/copywriter_website",
       details:
-        "This e-commerce platform provides a complete solution for online stores. It includes product management, shopping cart functionality, secure checkout with Stripe, user authentication, and an admin dashboard for managing products, orders, and customers.",
+        "Led development of an AI-powered push notification prototype for Meta and Viu, using LLMs, RAG, and CrewAI to generate engaging, localized content tailored to Hong Kong audiences Engineered a solution incorporating trending topics and memes, accelerating content creation through prompt engineering and diverse LLM experimentation (Llama, Gemma, DeepSeek, Sensenova Cantonese), aiming to significantly improve click-through rates.",
     },
     {
       title: "Task Management App",

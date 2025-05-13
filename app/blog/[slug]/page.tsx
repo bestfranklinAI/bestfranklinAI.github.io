@@ -111,3 +111,10 @@ export default function About() {
     </main>
   )
 }
+
+// This function tells Next.js which slugs to pre-render at build time
+export async function generateStaticParams() {
+  // TODO: Replace with your actual blog slugs or fetch from a data source
+  const slugs = ["getting-started-with-nextjs"];
+  return slugs.map(slug => ({ slug }));
+}
