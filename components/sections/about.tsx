@@ -81,7 +81,7 @@ export default function About() {
             whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(0, 0, 0, 0.2)" }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <img src="/images/selfie-profile.jpg" alt="Profile" className="object-cover w-full h-full" />
+            <img src="./images/selfie-profile.jpg" alt="Profile" className="object-cover w-full h-full" />
           </motion.div>
           <span className="mt-4 text-lg font-semibold text-primary text-center">AIA Scholar | Fung Scholar</span>
         </motion.div>
