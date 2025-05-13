@@ -17,7 +17,7 @@ export default function About() {
           viewport={{ once: true }}
         >
           <p className="text-lg mb-4">
-            I'm a passionate full-stack developer with over 5 years of experience building web applications. I
+            hiiI'm a passionate full-stack developer with over 5 years of experience building web applications. I
             specialize in JavaScript, React, Node.js, and modern web technologies.
           </p>
           <p className="text-lg mb-4">
