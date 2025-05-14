@@ -3,7 +3,7 @@ title: "The Road to AGI: Latest Advances in AI Development and Agentic Framework
 date: "2025-05-10"
 tags: ["Artificial Intelligence", "AGI", "AI Frameworks"]
 excerpt: "Exploring cutting-edge advancements in AI, the pursuit of AGI, and the transformative role of agentic frameworks."
-image: "/images/ai-agent.jpg"
+image: "./images/ai-agent.jpg"
 readTime: "6 min read"
 ---
 
