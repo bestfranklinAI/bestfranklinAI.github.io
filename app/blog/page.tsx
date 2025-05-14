@@ -1,47 +1,26 @@
+import fs from "fs/promises"
+import path from "path"
+import matter from "gray-matter"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowLeft, Calendar, Clock } from "lucide-react"
 
-export default function BlogPage() {
-  const blogPosts = [
-    {
-      id: "getting-started-with-nextjs",
-      title: "Getting Started with Next.js",
-      excerpt: "Learn how to build modern web applications with Next.js, the React framework for production.",
-      date: "May 10, 2023",
-      readTime: "5 min read",
-      tags: ["Next.js", "React", "Web Development"],
-      image: "/placeholder.svg?height=300&width=600",
-    },
-    {
-      id: "mastering-typescript",
-      title: "Mastering TypeScript for React Development",
-      excerpt: "Discover how TypeScript can improve your React development experience with static typing.",
-      date: "June 15, 2023",
-      readTime: "8 min read",
-      tags: ["TypeScript", "React", "JavaScript"],
-      image: "/placeholder.svg?height=300&width=600",
-    },
-    {
-      id: "tailwind-css-tips",
-      title: "10 Tailwind CSS Tips to Improve Your Workflow",
-      excerpt: "Practical tips and tricks to make the most out of Tailwind CSS in your projects.",
-      date: "July 22, 2023",
-      readTime: "6 min read",
-      tags: ["CSS", "Tailwind", "Web Design"],
-      image: "/placeholder.svg?height=300&width=600",
-    },
-    {
-      id: "state-management-react",
-      title: "Modern State Management in React",
-      excerpt: "Comparing different state management solutions for React applications in 2023.",
-      date: "August 5, 2023",
-      readTime: "10 min read",
-      tags: ["React", "State Management", "Redux", "Zustand"],
-      image: "/placeholder.svg?height=300&width=600",
-    },
-  ]
+export default async function BlogPage() {
+  // Read all markdown files from the posts directory
+  const postsDir = path.join(process.cwd(), "/public/posts")
+  const files = await fs.readdir(postsDir)
+  const blogPosts = await Promise.all(
+    files.filter(file => file.endsWith(".md")).map(async (file) => {
+      const filePath = path.join(postsDir, file)
+      const fileContent = await fs.readFile(filePath, "utf8")
+      const { data } = matter(fileContent)
+      return {
+        id: file.replace(/\.md$/, ""),
+        ...data,
+      }
+    })
+  )
 
   return (
     <main className="min-h-screen py-16">
@@ -75,7 +54,7 @@ export default function BlogPage() {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {post.tags.map((tag, i) => (
+                  {post.tags && post.tags.map((tag: string, i: number) => (
                     <span key={i} className="bg-muted text-xs px-2 py-1 rounded">
                       {tag}
                     </span>
