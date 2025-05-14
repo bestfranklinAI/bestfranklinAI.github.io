@@ -8,33 +8,40 @@ import { motion } from "framer-motion"
 export default function Awards() {
   const awardsData = [
     {
-      title: "Best Web Application Award",
-      organization: "International Web Development Conference",
+      title: "Team MVP",
+      organization: "TEMG 4950N: Meta LLM for Digital Transformation of Viu International",
+      year: " Dec 2024",
+      description:
+        "Recognized for outstanding contributions to the team project, leading to successful implementation of a large language model for Viu International.",
+    },
+    {
+      title: "Champion in Generative AI Hackathon for Social Good 2023-2024",
+      organization: "Join University Competition",
+      year: "Oct 2024",
+      description:
+        "Developed a generative AI solution to recommend environmentally friendly recipe to the users and encourage people to buy rescue food / nearly expired food from supermarkets.",
+    },
+    {
+      title: "Fung Scholarships",
+      organization: "Victor and William Fung Foundation Ltd",
+      year: "Nov 2024",
+      description:
+        "The Fung Scholarships promote leadership development through scholarships, fellowships and educational programmes.",
+    },
+    {
+      title: "Most Innovative Project Award",
+      organization: "Code Free Soft Limited",
       year: "2023",
       description:
-        "Awarded for developing an innovative web application that demonstrated exceptional user experience and technical excellence.",
+        "Developing a cutting-edge application designed to revolutionize recycling rewards. It is an innovative platform enables recyclers to effortlessly claim and redeem reward points when they recycle at designated recycling spots. With a user-friendly interface and a diverse selection of rewards, we empower individuals to make a positive impact on the environment while enjoying exciting incentives.",
     },
     {
-      title: "Hackathon Winner",
-      organization: "TechCrunch Disrupt",
-      year: "2022",
+      title: "AIA Scholarship",
+      organization: "AIA",
+      year: "2023",
       description:
-        "First place in the annual hackathon for creating a real-time collaboration tool that solved remote work challenges.",
-    },
-    {
-      title: "Open Source Contributor of the Year",
-      organization: "GitHub",
-      year: "2021",
-      description:
-        "Recognized for significant contributions to open source projects, particularly in the JavaScript ecosystem.",
-    },
-    {
-      title: "Innovation in AI Award",
-      organization: "AI Summit",
-      year: "2020",
-      description:
-        "Awarded for developing a machine learning algorithm that improved natural language processing accuracy by 30%.",
-    },
+        "The AIA scholarship provides HK$50,000 annually to scholars to recognize their track record of academic excellence and community service.",
+    }
   ]
 
   return (

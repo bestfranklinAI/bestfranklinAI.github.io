@@ -11,32 +11,32 @@ export default function Skills() {
     {
       category: "Programming Languages",
       icon: <Code className="h-5 w-5" />,
-      skills: ["JavaScript", "TypeScript", "Python", "Java", "C#", "PHP"],
+      skills: ["JavaScript", "TypeScript", "Python", "Java", "C++", "R", "Java"],
     },
     {
       category: "Frontend",
       icon: <Palette className="h-5 w-5" />,
-      skills: ["React", "Next.js", "Vue.js", "Angular", "HTML5", "CSS3", "Tailwind CSS", "SASS"],
+      skills: ["React", "Next.js", "HTML5", "CSS3", "Tailwind CSS"],
     },
     {
       category: "Backend",
       icon: <Layers className="h-5 w-5" />,
-      skills: ["Node.js", "Express", "Django", "Flask", "ASP.NET", "Laravel"],
+      skills: ["Node.js", "Express", "FastAPI", "Flask"],
     },
     {
       category: "Databases",
       icon: <Database className="h-5 w-5" />,
-      skills: ["MongoDB", "PostgreSQL", "MySQL", "SQLite", "Redis", "Firebase"],
+      skills: ["MongoDB", "PostgreSQL", "MySQL", "SQLite"],
     },
     {
       category: "DevOps & Tools",
       icon: <Terminal className="h-5 w-5" />,
-      skills: ["Git", "Docker", "Kubernetes", "AWS", "Azure", "CI/CD", "Jest", "Cypress"],
+      skills: ["Git", "Docker", "AWS", "Azure", "CI/CD"],
     },
     {
       category: "Software & Tools",
       icon: <Cpu className="h-5 w-5" />,
-      skills: ["VS Code", "Figma", "Adobe XD", "Photoshop", "Jira", "Notion", "Postman"],
+      skills: ["VS Code", "Figma", "Cursor", "IntelliJ", "Notion", "Postman", "Excalidraw"],
     },
   ]
 
