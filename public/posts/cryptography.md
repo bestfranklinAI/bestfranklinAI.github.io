@@ -3,7 +3,7 @@ title: "The Quantum Threat to Cryptography: What You Need to Know"
 date: "2025-05-14"
 tags: ["Cybersecurity", "Quantum Computing", "Cryptography"]
 excerpt: "Exploring how quantum computing could disrupt modern encryption and what's being done to protect our digital future."
-image: "/images/cryptography.jpg"
+image: "https://bestfranklinai.github.io/bestfranklinAI/images/cryptography.jpg"
 readTime: "8 min read"
 ---
 

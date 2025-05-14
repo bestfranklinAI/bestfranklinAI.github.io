@@ -33,7 +33,7 @@ export default function Projects() {
       title: "Utilizing LLM for Push Notification",
       description:
         "A full-featured platform with that optimize the generation of push notification with LLM.",
-      image: "/images/temg4950n.png",
+      image: "./images/temg4950n.png",
       technologies: ["React", "Node.js", "CrewAI", "Prompt Engineering", "RAG", "Llama"],
       category: ["fullstack", "llm"],
       liveLink: "#",
