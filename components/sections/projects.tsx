@@ -26,7 +26,7 @@ export default function Projects() {
     { value: "llm", label: "AI / LLM" },
   ];
   const allCategoryValues = categories.map((c) => c.value);
-  const [selectedCategories, setSelectedCategories] = useState<string[]>(allCategoryValues);
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
   const projectsData = [
     {
@@ -110,13 +110,13 @@ export default function Projects() {
     }
   ]
 
-  const filteredProjects = selectedCategories.length === 0
+  const filteredProjects = selectedCategory === "all"
     ? projectsData
     : projectsData.filter((project) => {
         const projectCategories = Array.isArray(project.category)
           ? project.category
           : [project.category];
-        return projectCategories.some((cat) => selectedCategories.includes(cat));
+        return projectCategories.includes(selectedCategory);
       });
 
   return (
@@ -129,16 +129,11 @@ export default function Projects() {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <Tabs defaultValue="all" value="" onValueChange={() => {}} className="mb-8">
+        <Tabs value={selectedCategory} onValueChange={setSelectedCategory} className="mb-8">
           <TabsList className="grid grid-cols-3 md:grid-cols-6 w-full max-w-2xl mx-auto">
             <TabsTrigger
               value="all"
-              onClick={() => setSelectedCategories(selectedCategories.length === allCategoryValues.length ? [] : allCategoryValues)}
-              className={
-                selectedCategories.length === allCategoryValues.length
-                  ? "bg-primary text-primary-foreground"
-                  : ""
-              }
+              className={selectedCategory === "all" ? "bg-primary text-primary-foreground" : ""}
             >
               All
             </TabsTrigger>
@@ -146,14 +141,7 @@ export default function Projects() {
               <TabsTrigger
                 key={cat.value}
                 value={cat.value}
-                onClick={() => {
-                  setSelectedCategories((prev) =>
-                    prev.includes(cat.value)
-                      ? prev.filter((c) => c !== cat.value)
-                      : [...prev, cat.value]
-                  );
-                }}
-                className={selectedCategories.includes(cat.value) ? "bg-primary text-primary-foreground" : ""}
+                className={selectedCategory === cat.value ? "bg-primary text-primary-foreground" : ""}
               >
                 {cat.label}
               </TabsTrigger>
@@ -164,7 +152,7 @@ export default function Projects() {
 
       <AnimatePresence mode="wait">
         <motion.div
-          key={selectedCategories.join(",")}
+          key={selectedCategory}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}

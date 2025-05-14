@@ -5,6 +5,17 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowLeft, Calendar, Clock } from "lucide-react"
+import { getImagePath } from "@/lib/utils"
+
+interface BlogPost {
+  id: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  readTime: string;
+  image?: string;
+  tags?: string[];
+}
 
 export default async function BlogPage() {
   // Read all markdown files from the posts directory
@@ -18,7 +29,7 @@ export default async function BlogPage() {
       return {
         id: file.replace(/\.md$/, ""),
         ...data,
-      }
+      } as BlogPost
     })
   )
 
@@ -39,7 +50,7 @@ export default async function BlogPage() {
             <Card key={post.id} className="overflow-hidden">
               <div className="h-48 overflow-hidden">
                 <img
-                  src={post.image || "/placeholder.svg"}
+                  src={post.image ? getImagePath(post.image) : getImagePath("/placeholder.svg")}
                   alt={post.title}
                   className="w-full h-full object-cover transition-transform hover:scale-105"
                 />

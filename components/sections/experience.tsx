@@ -22,7 +22,7 @@ export default function Experience() {
       position: "Software Developer Intern",
       company: "EHF Limited",
       period: "Dec 2023 -  Jan 2024",
-      description: "Developed and maintained multiple web applications using the MERN stack.",
+      description: "",
       responsibilities: [
         "Utilize React.js to develop multiple user-friendly websites, ensuring seamless user experiences",
         "Integrate backend APIs built with Node.js and utilize MongoDB as the primary database solution for storing and retrieving data"

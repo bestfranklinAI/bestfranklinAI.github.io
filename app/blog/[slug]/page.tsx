@@ -6,15 +6,27 @@ import html from "remark-html"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react"
+import { getImagePath } from "@/lib/utils"
 
-interface BlogPostPageProps {
-  params: {
-    slug: string
-  }
+interface BlogPost {
+  title: string;
+  excerpt: string;
+  date: string;
+  readTime: string;
+  image?: string;
+  tags?: string[];
 }
 
-export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const { slug } = params
+// Updated type to handle params as a Promise
+type Params = {
+  params: Promise<{ slug: string }> | { slug: string }
+}
+
+export default async function BlogPostPage({ params }: Params) {
+  // Await params if it's a Promise
+  const resolvedParams = 'then' in params ? await params : params
+  const { slug } = resolvedParams
+
   const postPath = path.join(process.cwd(), "/public/posts", `${slug}.md`)
   let fileContent: string
   try {
@@ -25,6 +37,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { data, content } = matter(fileContent)
   const processedContent = await remark().use(html).process(content)
   const contentHtml = processedContent.toString()
+  
+  // Cast data to BlogPost interface
+  const postData = data as BlogPost
 
   return (
     <main className="min-h-screen py-16">
@@ -36,26 +51,26 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </Link>
           </Button>
 
-          <h1 className="text-4xl font-bold mb-4">{data.title}</h1>
+          <h1 className="text-4xl font-bold mb-4">{postData.title}</h1>
 
           <div className="flex flex-wrap gap-4 mb-6 text-sm text-muted-foreground">
             <div className="flex items-center">
               <Calendar className="h-4 w-4 mr-1" />
-              {data.date}
+              {postData.date}
             </div>
             <div className="flex items-center">
               <Clock className="h-4 w-4 mr-1" />
-              {data.readTime}
+              {postData.readTime}
             </div>
             <div className="flex items-center">
               <Tag className="h-4 w-4 mr-1" />
-              {data.tags && data.tags.join(", ")}
+              {postData.tags && postData.tags.join(", ")}
             </div>
           </div>
 
           <img
-            src={data.image || "/placeholder.svg"}
-            alt={data.title}
+            src={postData.image ? getImagePath(postData.image) : getImagePath("/placeholder.svg")}
+            alt={postData.title}
             className="w-full h-64 object-cover rounded-lg mb-8"
           />
 

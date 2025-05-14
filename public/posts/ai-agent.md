@@ -3,7 +3,7 @@ title: "The Road to AGI: Latest Advances in AI Development and Agentic Framework
 date: "2025-05-10"
 tags: ["Artificial Intelligence", "AGI", "AI Frameworks"]
 excerpt: "Exploring cutting-edge advancements in AI, the pursuit of AGI, and the transformative role of agentic frameworks."
-image: "./images/ai-agent.jpg"
+image: "/images/ai-agent.jpg"
 readTime: "6 min read"
 ---
 
@@ -50,22 +50,6 @@ AutoGPT, an open-source agentic framework, automates tasks by breaking them into
 2. Generate a budget spreadsheet.
 3. Draft invitation emails.
 
-```python
-class Agent:
-    def __init__(self, objective):
-        self.objective = objective
-        self.subtasks = []
-    
-    def plan(self):
-        # Break objective into subtasks
-        self.subtasks = llm_generate_subtasks(self.objective)
-    
-    def execute(self):
-        for task in self.subtasks:
-            result = perform_task(task)
-            if not validate(result):
-                self.adapt(task)
-```
 
 This self-directed approach is revolutionizing industries. In healthcare, agentic systems manage patient triage, while in finance, they optimize portfolios dynamically.
 
