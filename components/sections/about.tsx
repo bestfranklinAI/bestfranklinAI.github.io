@@ -38,7 +38,7 @@ export default function About() {
               className="flex items-center gap-2"
               onClick={() => {
               const link = document.createElement("a");
-              link.href = "/resume/cv.pdf";
+              link.href = "./resume/cv.pdf";
               link.download = "Franklin_Cheung_Resume.pdf";
               link.click();
               }}

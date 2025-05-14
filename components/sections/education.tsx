@@ -14,7 +14,7 @@ export default function Education() {
       institution: "The Hong Kong University of Science and Technology",
       period: "2022 - 2027",
       description: "GPA: 3.94/4.3",
-      logo: "/images/hkust.jpg",
+      logo: "./images/hkust.jpg",
       achievements: [
         "COMP3711 Design and Analysis of Algorithms",
         "COMP2211 Exploring Artificial Intelligence",
@@ -33,7 +33,7 @@ export default function Education() {
       institution: "KTH Royal Institute of Technology",
       period: "2022 - 2027",
       description: "GPA: 3.94/4.3",
-      logo: "/images/hkust.jpg",
+      logo: "./images/hkust.jpg",
       achievements: [
         "FINA3810 Bloomberg Market Concepts Certification",
         "FINA3103 Intermediate Investments",
@@ -45,7 +45,7 @@ export default function Education() {
       institution: "KTH Royal Institute of Technology",
       period: "2024-2025 (Spring Semester)",
       description: "",
-      logo: "/images/kth.png",
+      logo: "./images/kth.png",
       achievements: [
         "DD2448 Foundations of Cryptography",
         "DD2358 Introduction to High Performance Computing",
@@ -58,7 +58,7 @@ export default function Education() {
       institution: "Carmel Divine Grace Foundation Secondary School",
       period: "2016 - 2022",
       description: "5** in Physics, Chemistry, 5* in Mathematics and Biology",
-      logo: "/images/cdgfss.png",
+      logo: "./images/cdgfss.png",
       achievements: [
         "Deputy Leader in Orchestra",
         "Vice Chairman in the Extra curricular Activities Committee",
