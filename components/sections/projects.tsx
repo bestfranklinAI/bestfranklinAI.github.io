@@ -18,7 +18,15 @@ import {
 import { motion, AnimatePresence } from "framer-motion"
 
 export default function Projects() {
-  const [activeTab, setActiveTab] = useState("all")
+  const categories = [
+    { value: "frontend", label: "Frontend" },
+    { value: "backend", label: "Backend" },
+    { value: "fullstack", label: "Full Stack" },
+    { value: "hpc", label: "HPC" },
+    { value: "llm", label: "AI / LLM" },
+  ];
+  const allCategoryValues = categories.map((c) => c.value);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>(allCategoryValues);
 
   const projectsData = [
     {
@@ -27,72 +35,89 @@ export default function Projects() {
         "A full-featured platform with that optimize the generation of push notification with LLM.",
       image: "./images/temg4950n.png",
       technologies: ["React", "Node.js", "CrewAI", "Prompt Engineering", "RAG", "Llama"],
-      category: "fullstack",
+      category: ["fullstack", "llm"],
       liveLink: "#",
       githubLink: "https://github.com/TEMG4950N/copywriter_website",
       details:
         "Led development of an AI-powered push notification prototype for Meta and Viu, using LLMs, RAG, and CrewAI to generate engaging, localized content tailored to Hong Kong audiences Engineered a solution incorporating trending topics and memes, accelerating content creation through prompt engineering and diverse LLM experimentation (Llama, Gemma, DeepSeek, Sensenova Cantonese), aiming to significantly improve click-through rates.",
     },
     {
-      title: "Task Management App",
+      title: "Exploring High Performance Computing (HPC)",
       description:
-        "A collaborative task management application with real-time updates and team collaboration features.",
-      image: "/placeholder.svg?height=300&width=500",
-      technologies: ["Next.js", "Firebase", "Tailwind CSS"],
-      category: "frontend",
+        "Exploring performance profiling and memory profiling to identify bottlnecks in the code and optimize the performance.",
+      image: "./images/profiling.png",
+      technologies: ["cProfile", "SnakeViz", "mprof"],
+      category: ["hpc"],
       liveLink: "#",
-      githubLink: "#",
+      githubLink: "https://github.com/bestfranklinAI/hpc_hw1",
       details:
-        "This task management app allows teams to collaborate on projects in real-time. Features include task creation, assignment, status tracking, due dates, comments, file attachments, and notifications. The app uses Firebase for real-time updates and authentication.",
+        "This project focuses on performance profiling and memory profiling to identify bottlenecks in the code and optimize performance. It includes a detailed analysis of the code's performance using cProfile, SnakeViz, and mprof, along with recommendations for optimization.",
     },
     {
-      title: "Weather Dashboard",
-      description: "A weather dashboard that displays current and forecasted weather data for multiple locations.",
-      image: "/placeholder.svg?height=300&width=500",
-      technologies: ["React", "OpenWeather API", "Chart.js"],
-      category: "frontend",
+      title: "Developing a Gauss-Seidel solver",
+      description: "Explore multiple approaches to optimize iterative solvers using various Python tools and libraries",
+      image: "./images/solver.jpg",
+      technologies: ["cython", "cupy", "numpy"],
+      category: ["hpc"],
       liveLink: "#",
-      githubLink: "#",
+      githubLink: "https://github.com/bestfranklinAI/Cython-HPC-",
       details:
-        "This weather dashboard provides detailed weather information for any location. It displays current conditions, hourly forecasts, and 7-day forecasts. Users can save favorite locations and view historical weather data. The app uses the OpenWeather API and Chart.js for data visualization.",
+        "The key tasks include: Developing a Gauss-Seidel solver using Python constructs (lists, arrays, or NumPy) and a vectorized Jacobi solver. Profiling the solvers to identify computational bottlenecks. Using Cython to annotate and optimize the most computationally expensive parts of the code. Porting the solver to Nvidia GPUs using PyTorch and CuPy, employing vectorized operations for efficiency. Measuring and comparing the performance of CPU vs. GPU implementations across different grid sizes. Saving the final grid matrix to an HDF5 file for further analysis.",
     },
     {
-      title: "Content Management System",
-      description: "A headless CMS built with Node.js and GraphQL for managing digital content.",
-      image: "/placeholder.svg?height=300&width=500",
-      technologies: ["Node.js", "GraphQL", "PostgreSQL", "Docker"],
-      category: "backend",
-      liveLink: "#",
-      githubLink: "#",
+      title: "Smart Home APP",
+      description: "A prototype of mobile app and dashboard for smart home management to reduce the consumption of electricity.",
+      image: "./images/smart-home.png",
+      technologies: ["React", "Figma", "IOT", "Machine Learning"],
+      category: ["frontend"],
+      liveLink: "https://smart-home-ochre.vercel.app/",
+      githubLink: "https://github.com/bestfranklinAI/SmartHome",
       details:
-        "This headless CMS provides a flexible solution for managing digital content. It includes content modeling, versioning, publishing workflows, user management, and a GraphQL API for retrieving content. The system is containerized with Docker for easy deployment.",
+        "This project is a prototype of a mobile app and dashboard for smart home management, designed to reduce electricity consumption. The app allows users to monitor and control their smart devices, providing insights into energy usage patterns. It includes features such as device scheduling, energy consumption tracking, and machine learning algorithms for predictive analytics.",
     },
     {
-      title: "Fitness Tracking App",
-      description: "A mobile-first web application for tracking workouts and fitness progress.",
-      image: "/placeholder.svg?height=300&width=500",
-      technologies: ["React Native", "Redux", "Firebase", "D3.js"],
-      category: "mobile",
+      title: "EAM System",
+      description: "A web application for managing and tracking maintenance report in an organization.",
+      image: "./images/eam.png",
+      technologies: ["HTML", "CSS", "Llama", "ollama", "Flask", "RAG"],
+      category: ["backend", "llm"],
       liveLink: "#",
-      githubLink: "#",
+      githubLink: "https://github.com/bestfranklinAI/EAM-System",
       details:
-        "This fitness tracking app helps users monitor their workout routines and progress. Features include workout planning, exercise tracking, progress visualization, goal setting, and social sharing. The app uses D3.js for data visualization and Firebase for backend services.",
+        "This project is a web application for managing and tracking maintenance reports in an organization. It allows users to create, update, and view maintenance reports, providing a centralized platform for asset management. The web app connect to local language model to process natural language description in the maintenance report and generate a summary for the management team. It includes features such as user authentication, report categorization, and data visualization.",
     },
     {
-      title: "AI Image Generator",
-      description: "A web application that generates images using AI based on text prompts.",
-      image: "/placeholder.svg?height=300&width=500",
-      technologies: ["Python", "Flask", "TensorFlow", "React"],
-      category: "ai",
+      title: "Optimizing lattice-Boltzmann code for 2D flow resolution",
+      description: "Using HPC techniques to optimize the performance of a lattice-Boltzmann code",
+      image: "./images/lattice-boltzmann.png",
+      technologies: ["cython", "numba", "cuda", "pytorch"],
+      category: ["hpc"],
       liveLink: "#",
-      githubLink: "#",
+      githubLink: "https://github.com/sazwu/2358final",
       details:
-        "This AI image generator creates unique images based on text descriptions. It uses a deep learning model trained on millions of images to generate high-quality, creative visuals. The app includes features for adjusting generation parameters, saving favorites, and sharing creations.",
+        "This project focuses on optimizing the performance of a lattice-Boltzmann code for simulating 2D flow resolution. It involves using HPC techniques such as numba, cython, parallel computing and GPU acceleration to improve the efficiency of the code. The project includes performance profiling, optimization strategies, and a comparison of CPU vs. GPU implementations.",
     },
+    {
+      title: "Mini-HKUST Examination System",
+      description: "Using java to develop a mini-examination system for HKUST.",
+      image: "./images/mini-hkust-exam.png",
+      technologies: ["java", "javaFX", "Maven"],
+      category: ["fullstack", "llm"],
+      liveLink: "#",
+      githubLink: "https://github.com/WaichL/COMP3111-Project",
+      details:
+        "This project is a Java-based application for managing and tracking student grades and exams at HKUST. It uses JavaFX for the user interface and a custom database implementation for storing and querying data.",
+    }
   ]
 
-  const filteredProjects =
-    activeTab === "all" ? projectsData : projectsData.filter((project) => project.category === activeTab)
+  const filteredProjects = selectedCategories.length === 0
+    ? projectsData
+    : projectsData.filter((project) => {
+        const projectCategories = Array.isArray(project.category)
+          ? project.category
+          : [project.category];
+        return projectCategories.some((cat) => selectedCategories.includes(cat));
+      });
 
   return (
     <section id="projects" className="py-16 scroll-mt-16">
@@ -104,21 +129,42 @@ export default function Projects() {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <Tabs defaultValue="all" value={activeTab} onValueChange={setActiveTab} className="mb-8">
+        <Tabs defaultValue="all" value="" onValueChange={() => {}} className="mb-8">
           <TabsList className="grid grid-cols-3 md:grid-cols-6 w-full max-w-2xl mx-auto">
-            <TabsTrigger value="all">All</TabsTrigger>
-            <TabsTrigger value="frontend">Frontend</TabsTrigger>
-            <TabsTrigger value="backend">Backend</TabsTrigger>
-            <TabsTrigger value="fullstack">Full Stack</TabsTrigger>
-            <TabsTrigger value="mobile">Mobile</TabsTrigger>
-            <TabsTrigger value="ai">AI/ML</TabsTrigger>
+            <TabsTrigger
+              value="all"
+              onClick={() => setSelectedCategories(selectedCategories.length === allCategoryValues.length ? [] : allCategoryValues)}
+              className={
+                selectedCategories.length === allCategoryValues.length
+                  ? "bg-primary text-primary-foreground"
+                  : ""
+              }
+            >
+              All
+            </TabsTrigger>
+            {categories.map((cat) => (
+              <TabsTrigger
+                key={cat.value}
+                value={cat.value}
+                onClick={() => {
+                  setSelectedCategories((prev) =>
+                    prev.includes(cat.value)
+                      ? prev.filter((c) => c !== cat.value)
+                      : [...prev, cat.value]
+                  );
+                }}
+                className={selectedCategories.includes(cat.value) ? "bg-primary text-primary-foreground" : ""}
+              >
+                {cat.label}
+              </TabsTrigger>
+            ))}
           </TabsList>
         </Tabs>
       </motion.div>
 
       <AnimatePresence mode="wait">
         <motion.div
-          key={activeTab}
+          key={selectedCategories.join(",")}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
@@ -208,13 +254,15 @@ export default function Projects() {
                         </a>
                       </Button>
                     </motion.div>
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                      <Button size="sm" asChild>
-                        <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="h-4 w-4 mr-2" /> Demo
-                        </a>
-                      </Button>
-                    </motion.div>
+                    {project.liveLink && project.liveLink !== "#" && (
+                      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                        <Button size="sm" asChild>
+                          <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="h-4 w-4 mr-2" /> Demo
+                          </a>
+                        </Button>
+                      </motion.div>
+                    )}
                   </div>
                 </CardFooter>
               </Card>
