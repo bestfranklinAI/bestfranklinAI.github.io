@@ -18,7 +18,6 @@ Traditional computers use bits (0s and 1s), but **quantum computers** leverage q
 1. **Shor's Algorithm**: Can factor large numbers quickly, breaking RSA and ECC encryption.
 2. **Grover's Algorithm**: Speeds up brute-force attacks, halving the security of symmetric keys.
 
-![Quantum vs Classical Computing](/qubit-vs-bit.svg?height=300)
 
 ---
 
