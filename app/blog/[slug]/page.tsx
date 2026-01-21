@@ -7,6 +7,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react"
 import { getImagePath } from "@/lib/utils"
+import Navbar from "@/components/layout/navbar"
 
 interface BlogPost {
   title: string;
@@ -35,15 +36,27 @@ export default async function BlogPostPage({ params }: Params) {
     return <main className="min-h-screen py-16"><div className="container mx-auto px-4 max-w-4xl"><h1 className="text-2xl font-bold">Post not found</h1></div></main>
   }
   const { data, content } = matter(fileContent)
-  const processedContent = await remark().use(html).process(content)
-  const contentHtml = processedContent.toString()
+  
+  // Process markdown and fix image paths
+  let processedContent = await remark().use(html).process(content)
+  let contentHtml = processedContent.toString()
+  
+  // Replace image src paths to use the getImagePath helper
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
+  if (basePath) {
+    contentHtml = contentHtml.replace(
+      /src="\/images\//g,
+      `src="${basePath}/images/`
+    )
+  }
   
   // Cast data to BlogPost interface
   const postData = data as BlogPost
 
   return (
-    <main className="min-h-screen py-16">
-      <div className="container mx-auto px-4 max-w-4xl">
+    <main className="min-h-screen bg-background text-foreground">
+      <Navbar />
+      <div className="container mx-auto px-4 pt-24 pb-16 max-w-4xl">
         <div className="mb-8">
           <Button variant="outline" size="icon" asChild className="mb-4">
             <Link href="/blog">
@@ -80,6 +93,15 @@ export default async function BlogPostPage({ params }: Params) {
           />
         </div>
       </div>
+      
+      {/* Footer */}
+      <footer className="py-8 border-t border-border/50">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-sm text-muted-foreground">
+            © {new Date().getFullYear()} By Franklin Cheung
+          </p>
+        </div>
+      </footer>
     </main>
   )
 }

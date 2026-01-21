@@ -1,68 +1,90 @@
+/* Import Google Fonts - must be at the very top */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&family=Poppins:wght@500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
+    /* Light Mode */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 222 47% 11%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 220 14% 96%;
+    --card-foreground: 222 47% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 222 47% 11%;
 
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 192 91% 36%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 263 70% 50%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 263 70% 50%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 192 91% 36%;
 
     --radius: 0.5rem;
+
+    /* Custom Colors */
+    --teal: 200 50% 35%;
+    --purple: 210 45% 40%;
+    --surface: 220 14% 96%;
+    --deep-bg: 0 0% 100%;
+
+    /* Typography */
+    --font-montserrat: 'Montserrat', sans-serif;
+    --font-inter: 'Inter', sans-serif;
+    --font-poppins: 'Poppins', sans-serif;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark Mode Primary */
+    --background: 216 28% 7%;
+    --foreground: 214 32% 97%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 217 27% 14%;
+    --card-foreground: 214 32% 97%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 217 27% 14%;
+    --popover-foreground: 214 32% 97%;
 
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 187 100% 50%;
+    --primary-foreground: 216 28% 7%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 258 89% 66%;
+    --secondary-foreground: 214 32% 97%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 217 27% 20%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 258 89% 66%;
+    --accent-foreground: 214 32% 97%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
+    --border: 217 20% 27%;
+    --input: 217 20% 27%;
+    --ring: 187 100% 50%;
+
+    /* Custom Colors */
+    --teal: 200 55% 42%;
+    --purple: 210 50% 48%;
+    --surface: 217 27% 14%;
+    --deep-bg: 216 28% 7%;
   }
 }
 
@@ -72,16 +94,59 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-inter);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-montserrat);
   }
 }
 
+@layer utilities {
+  .font-montserrat {
+    font-family: var(--font-montserrat);
+  }
+  
+  .font-inter {
+    font-family: var(--font-inter);
+  }
+  
+  .font-poppins {
+    font-family: var(--font-poppins);
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-[hsl(var(--teal))] to-[hsl(var(--purple))] bg-clip-text text-transparent;
+  }
+
+  .bg-gradient-primary {
+    @apply bg-gradient-to-r from-[hsl(var(--teal))] to-[hsl(var(--purple))];
+  }
+
+  .bg-gradient-hero {
+    background: linear-gradient(135deg, hsl(var(--deep-bg)) 0%, hsl(var(--surface)) 50%, hsl(var(--deep-bg)) 100%);
+  }
+
+  .glow-teal {
+    box-shadow: 0 0 20px hsla(var(--teal), 0.3);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 20px hsla(var(--purple), 0.3);
+  }
+
+  .glow-bright {
+    box-shadow: 0 0 30px hsla(var(--teal), 0.6);
+  }
+}
+
+/* Animation utilities */
 .animate-blink {
   animation: blink 1s step-end infinite;
 }
 
 @keyframes blink {
-  from,
-  to {
+  from, to {
     opacity: 1;
   }
   50% {
@@ -89,17 +154,60 @@
   }
 }
 
-/* Add support for blog post content */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsla(var(--teal), 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px hsla(var(--teal), 0.6);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* Prose styles for blog content */
 .prose {
   @apply text-foreground;
 }
 
 .prose h2 {
-  @apply text-2xl font-bold mt-8 mb-4;
+  @apply text-2xl font-bold mt-8 mb-4 font-montserrat;
 }
 
 .prose p {
-  @apply mb-4;
+  @apply mb-4 leading-relaxed;
 }
 
 .prose ul {
@@ -120,4 +228,34 @@
 
 .prose strong {
   @apply font-bold;
+}
+
+/* Scrollbar styling for dark mode */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

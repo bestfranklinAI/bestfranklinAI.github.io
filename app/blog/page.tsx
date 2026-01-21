@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowLeft, Calendar, Clock } from "lucide-react"
 import { getImagePath } from "@/lib/utils"
+import Navbar from "@/components/layout/navbar"
 
 interface BlogPost {
   id: string;
@@ -34,8 +35,9 @@ export default async function BlogPage() {
   )
 
   return (
-    <main className="min-h-screen py-16">
-      <div className="container mx-auto px-4">
+    <main className="min-h-screen bg-background text-foreground">
+      <Navbar />
+      <div className="container mx-auto px-4 pt-24 pb-16">
         <div className="mb-8 flex items-center gap-4">
           <Button variant="outline" size="icon" asChild>
             <Link href="/">
@@ -86,6 +88,15 @@ export default async function BlogPage() {
           ))}
         </div>
       </div>
+      
+      {/* Footer */}
+      <footer className="py-8 border-t border-border/50">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-sm text-muted-foreground">
+            © {new Date().getFullYear()} By Franklin Cheung
+          </p>
+        </div>
+      </footer>
     </main>
   )
 }
