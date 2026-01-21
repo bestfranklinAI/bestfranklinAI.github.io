@@ -2,92 +2,201 @@
 
 import SectionHeading from "@/components/ui/section-heading"
 import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Code, Layers, Database, Palette, Terminal, Cpu } from "lucide-react"
+import { Code, Layers, Database, Palette, Terminal, Cpu, TrendingUp, Brain } from "lucide-react"
 import { motion } from "framer-motion"
+
+// Skill badge component with hexagon-inspired design
+function SkillBadge({ skill, level, index }: { skill: string; level: "expert" | "advanced" | "proficient"; index: number }) {
+  const levelColors = {
+    expert: "border-teal text-teal bg-teal/10 hover:bg-teal/20",
+    advanced: "border-purple text-purple bg-purple/10 hover:bg-purple/20",
+    proficient: "border-muted-foreground text-muted-foreground bg-muted/50 hover:bg-muted",
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+      whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+      transition={{ duration: 0.4, delay: index * 0.05 }}
+      viewport={{ once: true }}
+      whileHover={{ 
+        scale: 1.1,
+        boxShadow: level === "expert" 
+          ? "0 0 20px hsla(var(--teal), 0.4)" 
+          : level === "advanced" 
+          ? "0 0 20px hsla(var(--purple), 0.4)"
+          : "0 0 10px hsla(var(--muted-foreground), 0.2)"
+      }}
+      className={`
+        px-4 py-2 rounded-lg border-2 font-poppins text-sm font-medium
+        transition-all duration-300 cursor-default
+        ${levelColors[level]}
+      `}
+    >
+      {skill}
+    </motion.div>
+  )
+}
 
 export default function Skills() {
   const skillsData = [
     {
       category: "Programming Languages",
       icon: <Code className="h-5 w-5" />,
-      skills: ["JavaScript", "TypeScript", "Python", "Java", "C++", "R", "Java"],
+      skills: [
+        { name: "Python", level: "expert" as const },
+        { name: "JavaScript", level: "expert" as const },
+        { name: "TypeScript", level: "advanced" as const },
+        { name: "Java", level: "advanced" as const },
+        { name: "C++", level: "proficient" as const },
+        { name: "R", level: "proficient" as const },
+      ],
     },
     {
-      category: "Frontend",
+      category: "Frontend Development",
       icon: <Palette className="h-5 w-5" />,
-      skills: ["React", "Next.js", "HTML5", "CSS3", "Tailwind CSS"],
+      skills: [
+        { name: "React", level: "expert" as const },
+        { name: "Next.js", level: "expert" as const },
+        { name: "Tailwind CSS", level: "expert" as const },
+        { name: "Framer Motion", level: "advanced" as const },
+        { name: "HTML5/CSS3", level: "expert" as const },
+      ],
     },
     {
-      category: "Backend",
+      category: "Backend & APIs",
       icon: <Layers className="h-5 w-5" />,
-      skills: ["Node.js", "Express", "FastAPI", "Flask"],
+      skills: [
+        { name: "Node.js", level: "advanced" as const },
+        { name: "FastAPI", level: "advanced" as const },
+        { name: "Flask", level: "advanced" as const },
+        { name: "Express", level: "proficient" as const },
+        { name: "REST APIs", level: "expert" as const },
+      ],
     },
     {
       category: "Databases",
       icon: <Database className="h-5 w-5" />,
-      skills: ["MongoDB", "PostgreSQL", "MySQL", "SQLite"],
+      skills: [
+        { name: "MongoDB", level: "advanced" as const },
+        { name: "PostgreSQL", level: "advanced" as const },
+        { name: "MySQL", level: "proficient" as const },
+        { name: "SQLite", level: "proficient" as const },
+      ],
     },
     {
-      category: "DevOps & Tools",
+      category: "AI & Machine Learning",
+      icon: <Brain className="h-5 w-5" />,
+      skills: [
+        { name: "LangChain", level: "advanced" as const },
+        { name: "RAG", level: "advanced" as const },
+        { name: "Prompt Engineering", level: "expert" as const },
+        { name: "PyTorch", level: "proficient" as const },
+        { name: "Pandas/NumPy", level: "expert" as const },
+      ],
+    },
+    {
+      category: "Finance & Analytics",
+      icon: <TrendingUp className="h-5 w-5" />,
+      skills: [
+        { name: "Financial Modeling", level: "advanced" as const },
+        { name: "Portfolio Analysis", level: "advanced" as const },
+        { name: "Bloomberg Terminal", level: "proficient" as const },
+        { name: "Data Visualization", level: "advanced" as const },
+      ],
+    },
+    {
+      category: "DevOps & Cloud",
       icon: <Terminal className="h-5 w-5" />,
-      skills: ["Git", "Docker", "AWS", "Azure", "CI/CD"],
+      skills: [
+        { name: "Git/GitHub", level: "expert" as const },
+        { name: "Docker", level: "proficient" as const },
+        { name: "AWS", level: "proficient" as const },
+        { name: "Azure", level: "proficient" as const },
+        { name: "CI/CD", level: "proficient" as const },
+      ],
     },
     {
-      category: "Software & Tools",
+      category: "Tools & Software",
       icon: <Cpu className="h-5 w-5" />,
-      skills: ["VS Code", "Figma", "Cursor", "IntelliJ", "Notion", "Postman", "Excalidraw"],
+      skills: [
+        { name: "VS Code", level: "expert" as const },
+        { name: "Figma", level: "proficient" as const },
+        { name: "Cursor AI", level: "advanced" as const },
+        { name: "Postman", level: "advanced" as const },
+        { name: "Notion", level: "expert" as const },
+      ],
     },
   ]
 
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  }
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 },
-  }
-
   return (
-    <section id="skills" className="py-16 scroll-mt-16">
-      <SectionHeading title="Skills & Expertise" />
-      <motion.div
-        className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-        variants={container}
-        initial="hidden"
-        whileInView="show"
+    <section id="skills" className="py-20 scroll-mt-16">
+      <SectionHeading 
+        title="Skills & Expertise" 
+        subtitle="Technologies and tools I have worked with"
+      />
+      
+      {/* Legend */}
+      <motion.div 
+        className="flex flex-wrap justify-center gap-6 mb-12"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        {skillsData.map((category, index) => (
-          <motion.div key={index} variants={item}>
-            <Card className="h-full hover:shadow-lg transition-shadow duration-300">
+        <div className="flex items-center gap-2 text-sm">
+          <div className="w-3 h-3 rounded-full bg-teal" />
+          <span className="text-muted-foreground">Expert</span>
+        </div>
+        <div className="flex items-center gap-2 text-sm">
+          <div className="w-3 h-3 rounded-full bg-purple" />
+          <span className="text-muted-foreground">Advanced</span>
+        </div>
+        <div className="flex items-center gap-2 text-sm">
+          <div className="w-3 h-3 rounded-full bg-muted-foreground" />
+          <span className="text-muted-foreground">Proficient</span>
+        </div>
+      </motion.div>
+
+      <motion.div
+        className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ staggerChildren: 0.1 }}
+        viewport={{ once: true }}
+      >
+        {skillsData.map((category, categoryIndex) => (
+          <motion.div
+            key={category.category}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
+            viewport={{ once: true }}
+          >
+            <Card className="h-full bg-card/50 backdrop-blur-sm border-border/50 hover:border-teal/50 transition-all duration-300 hover:shadow-glow-sm group">
               <CardContent className="p-6">
-                <div className="flex items-center gap-2 mb-4">
+                {/* Category header */}
+                <div className="flex items-center gap-3 mb-5">
                   <motion.div
-                    className="bg-primary/10 p-2 rounded-full"
+                    className="p-2.5 rounded-lg bg-gradient-primary text-primary-foreground"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     transition={{ type: "spring", stiffness: 400, damping: 10 }}
                   >
                     {category.icon}
                   </motion.div>
-                  <h3 className="text-xl font-semibold">{category.category}</h3>
+                  <h3 className="font-montserrat font-semibold text-lg group-hover:text-gradient transition-all">
+                    {category.category}
+                  </h3>
                 </div>
+                
+                {/* Skills grid */}
                 <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill, i) => (
-                    <motion.div
-                      key={i}
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                    >
-                      <Badge variant="secondary">{skill}</Badge>
-                    </motion.div>
+                  {category.skills.map((skill, skillIndex) => (
+                    <SkillBadge
+                      key={skill.name}
+                      skill={skill.name}
+                      level={skill.level}
+                      index={skillIndex}
+                    />
                   ))}
                 </div>
               </CardContent>
